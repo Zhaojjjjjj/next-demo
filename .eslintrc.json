@@ -1,0 +1,157 @@
+{
+  "extends": [
+    // eslint 自带拓展校验
+    "next/core-web-vitals",
+    "prettier"
+  ],
+  "rules": {
+    // “off” or 0 - 关闭规则
+    // “warn” or 1 - 将规则视为一个警告（不会影响退出码）
+    // “error” or 2 -将规则视为一个错误 (退出码为1)
+    "no-console": "error",
+    "no-constant-condition": 2, // 禁止在条件中使用常量表达式 if(true) if(1)
+    "no-dupe-args": 2, // 函数参数不能重复
+    "no-eq-null": 2, // 禁止对null使用==或!=运算符
+    "no-extra-semi": 2, // 禁止多余的冒号
+    "linebreak-style": [0, "windows"], // 换行风格
+    "no-unreachable": 2, // 不能有无法执行的代码
+    "no-var": 2, // 禁用var，用let和const代替
+    // "camelcase": 2, // 强制驼峰法命名
+    "init-declarations": 0, // 声明时必须赋初值
+    // 避免 `eslint` 对于 `typescript` 函数重载的误报
+    "react/display-name": "off",
+    "react/prop-types": "off", // 默认使用react/prop-types检查
+    "no-multiple-empty-lines": [2, { "max": 1 }], //空行最多不能超过1行
+    "template-curly-spacing": [2, "never"], //模版字符串配置规则
+    "space-before-function-paren": [2, "never"], //函数名称后不要空格
+    "space-in-parens": [2, "never"], //不允许使用括号内的空格
+    "space-unary-ops": [2, { "words": true, "nonwords": false }], //一元运算符之后和一元运算符之后的空间的一致性
+    "array-bracket-spacing": [2, "never"], //需要或不允许阵列括号和其他标记之间的空格
+    "object-curly-spacing": [2, "always", { "objectsInObjects": false }], //需要或不允许在大括号之间留出空格
+    "prefer-const": 2, // 未被分配的变量用const
+    "yoda": [2, "never"], // 条件的字面值首先出现，而变量出现在第二位
+    "yield-star-spacing": [2, "both"], // 此规则强制执行*周围 yield*表达式的间距
+    "wrap-iife": [2, "any"], // 开头的圆括号使包含的函数被解析为一个表达式，而不是一个声明
+    "valid-typeof": 2, //此规则强制将typeof表达式与有效的字符串文字进行比较
+    "use-isnan": 2, // 这条规则不允许比较'NaN'。
+    "spaced-comment": [
+      2,
+      "always",
+      {
+        "markers": [
+          "global",
+          "globals",
+          "eslint",
+          "eslint-disable",
+          "*package",
+          "!",
+          ","
+        ]
+      }
+    ], //注释开始后，此规则将强制间距的一致性//或/*
+    "space-infix-ops": 2, // 这条规则旨在确保中缀操作员周围有空间。
+    "space-before-blocks": [2, "always"], // 此规则将强化块之前的间距一致性。它只适用于不以新行开始的块(此规则忽略介于=>和块之间的间距。间距由arrow-spacing规则处理,此规则忽略关键字和块之间的间距。间距由keyword-spacing规则处理)
+    "semi-spacing": [2, { "before": false, "after": true }], // 规则旨在强制分号间隔。此规则可防止在表达式中使用分号之前的空格
+    "semi": [2, "always"], // 此规则强制使用分号。
+    "quotes": [
+      2,
+      "single",
+      { "avoidEscape": true, "allowTemplateLiterals": true }
+    ], //此规则强制一致使用反引号，双引号或单引号
+    "padded-blocks": [2, "never"], // 此规则在块内强制执行一致的空行填充
+    "operator-linebreak": [
+      2,
+      "after",
+      { "overrides": { "?": "before", ":": "before" } }
+    ], // 此规则为运营商实施一致的换行样式。
+    "one-var": [2, { "initialized": "never" }], // 此规则强制每个函数（对于var）或块（对于let和const）范围一起或单独声明变量。
+    "no-with": 2, // 如果你故意使用with语句，那么你可以禁用这个规则
+    "no-whitespace-before-property": 2, // 如果您不关心在对象的属性之前允许空格周围或开头括号之间的空格（如果它们位于同一行上），请关闭此规则。
+    "no-useless-escape": 0, // 此规则标志可以在不改变行为的情况下安全地移除
+    "no-useless-constructor": 2, // 这个规则标记了可以在不改变类的工作方式的情况下安全地移除的类构造函数
+    "no-useless-computed-key": 2, // 此规则禁止不必要地使用计算属性键。
+    "no-useless-call": 2, // 此规则旨在标记使用情况，Function.prototype.call()并且Function.prototype.apply()可以用正常的函数调用来替代
+    "no-unused-vars": [2, { "vars": "all", "args": "none" }], // 该规则旨在消除未使用的变量，函数和函数的参数。
+    "no-unsafe-finally": 2, // 这条规则不允许return，throw，break，和continue里面的语句finally块。它允许间接使用，如in function或class定义
+    "no-unneeded-ternary": [2, { "defaultAssignment": false }], // 当存在更简单的选择时，此规则不允许三元运算符
+    "no-unmodified-loop-condition": 2, // 该规则查找循环条件内的引用，然后检查这些引用的变量是否在循环中被修改。
+    "no-unexpected-multiline": 2, // 这条规则不允许混淆多行表达式，换行符看起来像是结束语句，但不是。
+    "no-undef-init": 2, // 此规则旨在消除初始化为的变量声明undefined
+    "no-undef": 2, // 任何对未声明的变量的引用都会导致警告，除非该变量在/*global ...*/注释中明确提到
+    "no-trailing-spaces": 2, // 此规则不允许在行尾添加尾随空白（空格，制表符和其他Unicode空白字符）
+    "no-throw-literal": 2, // 该规则旨在通过不允许抛出不可能是Error对象的文字和其他表达式来抛出异常时保持一致性。
+    "no-this-before-super": 2, // 这条规则的目的是在呼叫前标记this/ super关键字super()
+    "no-sparse-arrays": 2, // 这条规则不允许稀疏数组文字，它们在逗号前没有元素的地方有“孔”。它不适用于最后一个元素之后的尾随逗号
+    "no-spaced-func": 2, // 此规则不允许功能标识符与其应用程序之间的间距
+    "no-shadow-restricted-names": 2, // 全局对象（ES5的价值§15.1.1属性NaN，Infinity，undefined），以及严格限制模式标识符eval和arguments被认为在JavaScript中被限制的名字。将它们定义为其他意思可能会产生意想不到的后果，并使其他人阅读代码时感到困惑。
+    "no-sequences": 2, // 此规则禁止使用逗号运算符，但以下情况除外：在for语句的初始化或更新部分。如果表达式序列显式包含在圆括号中。
+    "no-self-compare": 2, // 引发这个错误是为了强调一个潜在的混淆和可能没有意义的代码片断。几乎没有任何情况需要将某些事情与自身进行比较
+    "no-self-assign": 2, // 这条规则旨在消除自我分配。
+    "no-return-assign": [2, "except-parens"], // 这条规则旨在消除return陈述中的任务。因此，无论何时发现作业的一部分，它都会发出警告return
+    "no-regex-spaces": 2, // 这个规则在正则表达式文字中不允许有多个空格。
+    "no-redeclare": 2, // 这个规则旨在消除在同一范围内具有多个声明的变量
+    "no-proto": 2, // 当一个对象被__proto__创建时被设置为该对象的构造函数的原始原型属性。getPrototypeOf是获得“原型”的首选方法。
+    "no-path-concat": 2, // 这个规则旨在防止 Node.js 中的目录路径字符串连接
+    "no-octal-escape": 2, // 这个规则不允许字符串文字中的八进制转义序列。如果 ESLint 在严格模式下解析代码，解析器（而不是此规则）会报告错误
+    "no-octal": 2, // 这个规则不允许使用八进制文字。如果 ESLint 在严格模式下解析代码，解析器（而不是此规则）会报告错误。
+    "no-obj-calls": 2, // 这个规则不允许调用Math，JSON和Reflect对象作为功能
+    "no-new-wrappers": 2, // 这个规则的目的是杜绝使用String，Number以及Boolean与new操作。因此发出，它当检索到new String，new Number或new Boolean警告
+    "no-new-symbol": 2, // 这个规则旨在防止Symbol与new操作员的意外呼叫。
+    "no-new-require": 2, // 这个规则旨在消除new require表达的使用。
+    "no-new-object": 2, // 这个规则不允许使用Object构造函数
+    "no-negated-in-lhs": 2, // 规则不允许否定in表达式中的左操作数。
+    "no-multi-str": 2, // 规则旨在防止使用多行字符串。
+    "no-multi-spaces": 2, // 规则旨在禁止在逻辑表达式，条件表达式，声明，数组元素，对象属性，序列和函数参数周围使用多个空格
+    "no-mixed-spaces-and-tabs": 2, // 此规则不允许使用混合空格和制表符进行缩进。
+    "no-lone-blocks": 2, // 此规则旨在消除脚本顶层或其他块中不必要的和可能混淆的块。
+    "no-labels": [2, { "allowLoop": false, "allowSwitch": false }], // 该规则旨在消除 JavaScript 中使用带标签的语句。只要遇到带标签的语句以及每次break或continue使用标签时，它都会发出警告。
+    "no-label-var": 2, // 此规则旨在通过禁止创建与范围内的变量共享名称的标签的不良做法来创建更清晰的代码
+    "no-iterator": 2, // 此规则旨在防止使用该__iterator__属性时可能出现的错误，该错误在多个浏览器中未实现。因此，它会在遇到__iterator__财产时发出警告
+    "no-irregular-whitespace": 2, // 此规则旨在捕获非正常制表符和空格的无效空白。其中一些字符可能会在现代浏览器中引起问题
+    "no-invalid-regexp": 2, // 此规则不允许RegExp构造函数中的无效正则表达式字符串。
+    "no-inner-declarations": [2, "functions"], // 这条规则要求函数声明和可选的变量声明位于程序的根节点或函数的主体中。
+    "no-implied-eval": 2, // 此规则旨在消除隐含eval()通过使用setTimeout()，setInterval()或execScript()
+    "no-func-assign": 2, // 此规则不允许重新分配function声明。
+    "no-floating-decimal": 2, // 此规则旨在消除浮点小数点，并在数值有小数点但在其之前或之后缺少数字时发出警告
+    "no-fallthrough": 2, // 这条规则的目的是消除一个案件无意中掉到另一个案件。因此，它会标记没有标注评论的任何延期情况。
+    "no-extra-parens": [2, "functions"], // 此规则仅在必要时限制使用括号。
+    "no-extra-boolean-cast": 2, // 该规则禁止不必要的布尔转换
+    "no-extra-bind": 2, // 此规则旨在避免不必要的使用bind()
+    "no-extend-native": 2, // 不允许直接修改内建对象的原型
+    "no-ex-assign": 2, // 此规则不允许在catch子句中重新分配例外
+    "no-eval": 2, // 该规则旨在通过禁止使用eval()函数来防止潜在的危险，不必要的和慢速的代码。因此，无论何时使用该eval()功能，它都会发出警告。
+    "no-empty-pattern": 2, // 此规则旨在标记解构结构对象和数组中的任何空模式，因此，只要遇到问题就会报告问题。
+    "no-empty-character-class": 2, // 此规则不允许在正则表达式中使用空字符类。
+    "no-duplicate-case": 2, // 此规则不允许在switch语句的case子句中使用重复的测试表达式
+    "no-dupe-keys": 2, // 此规则不允许在对象文字中使用重复键。
+    "no-dupe-class-members": 2, // 此规则旨在标记在级别成员中使用重复名称。
+    "no-delete-var": 2, // 此规则不允许在变量上使用delete操作符
+    "no-control-regex": 0, // 此规则不允许正则表达式中的控制字符。
+    "no-const-assign": 2, // 此规则旨在标记修改使用const关键字声明的变量。
+    "no-cond-assign": 2, // 这条规则不允许在试验条件不明确赋值运算符if，for，while，和do...while语句
+    "no-class-assign": 2, // 该规则旨在标记修改类声明的变量。
+    "no-caller": 2, // 此规则旨在阻止使用已弃用和次优代码，但不允许使用arguments.caller和arguments.callee。因此，它会发出警告时arguments.caller和arguments.callee被使用
+    "no-array-constructor": 2, // 此规则不允许使用Array构造函数。
+    "new-parens": 2, // 此规则在使用new关键字调用不带参数的构造函数时需要括号，以便提高代码清晰度。
+    "new-cap": [2, { "newIsCap": true, "capIsNew": false }], // 此规则要求构造函数名以大写字母开头。某些内置标识符可免除此规则
+    "keyword-spacing": [2, { "before": true, "after": true }], // 此规则强制执行围绕关键字和关键字标记的一致空格
+    "key-spacing": [2, { "beforeColon": false, "afterColon": true }], // 此规则强制在对象字面量属性中的键和值之间保持一致的间距
+    "jsx-quotes": [2, "prefer-single"], // 此规则强制在 JSX 属性中一致使用双引号或单引号。
+    "indent": [2, 2, { "SwitchCase": 1 }], // 此规则强制执行一致的缩进样式
+    "handle-callback-err": [2, "^(err|error)$"], // 这个规则期望当你在 Node.js 中使用回调模式时，你会处理这个错误
+    "generator-star-spacing": [2, { "before": true, "after": true }], // 该规则旨在强化*发生器功能的间距
+    "eqeqeq": ["error", "always", { "null": "ignore" }], // 该规则旨在消除类型不安全的等式操作符
+    "eol-last": 2, // 该规则在非空文件的末尾至少执行一个换行符（或不存在）
+    "dot-location": [2, "property"], // 此规则旨在强制执行成员表达式中的换行符一致性。此规则防止在成员表达式中围绕点使用混合换行符
+    "curly": [0, "multi-line"], // 此规则旨在通过确保将块语句包装在花括号中来防止错误并提高代码清晰度
+    "constructor-super": 2, // 此规则旨在标记无效/缺少的super()调用
+    "comma-style": [2, "last"], // 此规则在数组文字、对象文字和变量声明中强制使用一致的逗号样式。此规则不适用于以下任何一种情况：逗号前跟换行符（单独的逗号）单行数组文字、对象文字和变量声明
+    "comma-spacing": [2, { "before": false, "after": true }], // 规则在变量声明，数组文字，对象文字，函数参数和序列中的逗号前后加上一致的间距。
+    "comma-dangle": [2, "never"], // 此规则强制在对象和数组文字中一致地使用尾随逗号。
+    "camelcase": [0, { "properties": "always" }], // 规则查找_位于源代码内的任何下划线（）。它会忽略前导和尾随下划线，并只检查变量名称中间的那些下划线。如果 ESLint 确定该变量是一个常量（全部大写），则不会引发警告。否则，会引发警告。此规则仅标记定义和分配，但不标记函数调用。在 ES6 import语句的情况下，该规则仅针对将被导入本地模块范围的变量的名称
+    "brace-style": [2, "1tbs", { "allowSingleLine": true }], // 规则为块执行一致的括号样式。
+    "block-spacing": [2, "always"], // 规则在打开的块令牌内和同一行上的下一个令牌内强制执行一致的间距。此规则还会在同一行中的关闭块标记和以前的标记内强制实施一致的间距。
+    "arrow-spacing": [2, { "before": true, "after": true }], // 规则在箭头函数的箭头（=>）之前/之后标准化间距样式。
+    "accessor-pairs": 2 // 这个规则强制执行一个样式，它需要为每个定义了 setter 的属性设置一个 getter。
+  }
+}
